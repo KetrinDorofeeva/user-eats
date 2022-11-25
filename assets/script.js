@@ -109,26 +109,26 @@ function registration() {
 
 
 /*Модальное окно корзины*/
-var modal_card = document.getElementById("myModal_card");
-var btn_card = document.getElementById("myBtn_card");
-var cross_card = document.getElementsByClassName("close_card")[0];
+// var modal_card = document.getElementById("myModal_card");
+// var btn_card = document.getElementById("myBtn_card");
+// var cross_card = document.getElementsByClassName("close_card")[0];
 
 //Когда пользователь нажимает на кнопку, открывается модальное окно
-btn_card.onclick = function() {
-    modal_card.style.display = "block";
-}
+// btn_card.onclick = function() {
+//     modal_card.style.display = "block";
+// }
 
 //Когда пользователь нажимает на крестик, закрывается модальное окно
-cross_card.onclick = function() {
-    modal_card.style.display = "none";
-}
+// cross_card.onclick = function() {
+//     modal_card.style.display = "none";
+// }
 
 //Когда пользователь щелкает в любом месте за пределами модального окна, оно зыкрывается
-window.onclick = function(event) {
-    if (event.target == modal_card) {
-        modal_card.style.display = "none";
-    }
-}
+// window.onclick = function(event) {
+//     if (event.target == modal_card) {
+//         modal_card.style.display = "none";
+//     }
+// }
 
 
 /*Модальное окно товара*/
