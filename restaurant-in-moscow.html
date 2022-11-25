@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="header_body">
                     <div class="header_logo">
-                        <a href="index.html" class="logo">
+                        <a href="#" class="logo">
                             <span class="UBER">UBER</span>
                             <span class="EATS">EATS</span>
                         </a>
@@ -25,12 +25,82 @@
 
                     <div class="header_items">
                         <div class="header_login">
-                            <button class="login_button">Войти</button>
+                            <button class="login_button" id="myBtn_registration">Регистрация <i class='bx bx-user-plus bx-sx'></i></button>
+                            <button class="login_button" id="myBtn_login">Авторизация <i class='bx bxs-user-check bx-sx'></i></button>
                         </div>
 
-                        <div class="header_basket">
-                            <img src="assets/img/basket.svg" alt="Корзина">
+                        <!--Модальное окно регистрации-->
+                        <div id="myModal_registration" class="modal registration">
+                            <div class="modal-content">
+                                <div class="modal-header registration">
+                                    <span class="close_registration">&times;</span>
+                                    <h2>Регистрация</h2>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form>
+                                        <input type="email" placeholder="E-mail" required>
+                                        <input type="tel" placeholder="Телефон" required>
+                                        <input type="text" placeholder="Логин" required>
+                                        <input type="password" placeholder="Пароль" required>
+                                        <input type="password" placeholder="Повторите пароль" required>
+                                        <button>Зарегистрироваться</button>
+                                    </form>
+                                </div>
+                                
+                                <div class="modal-footer registration">
+                                    <span>Есть аккаунт?</span> <a href="javascript:login();">Авторизация</a><i class='bx bx-right-arrow-alt'></i>
+                                </div>
+                            </div>
                         </div>
+
+                        <!--Модальное окно авторизации-->
+                        <div id="myModal_login" class="modal login">
+                            <div class="modal-content">
+                                <div class="modal-header login">
+                                    <span class="close_login">&times;</span>
+                                    <h2>Авторизация</h2>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form>
+                                        <input type="text" placeholder="Логин" required>
+                                        <input type="password" placeholder="Пароль" required>
+                                        <button>Войти</button>
+                                    </form>
+                                </div>
+                                
+                                <div class="modal-footer login">
+                                    <span>Нет аккаунта?</span> <a href="javascript:registration();">Регистрация</a><i class='bx bx-right-arrow-alt'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="header_basket" id="myBtn_card">
+                            <i class='bx bxs-shopping-bag bx-sm'></i>
+                        </div>
+
+                        <!--Модальное окно корзины-->
+                        <!-- <div id="myModal_card" class="modal card">
+                            <div class="modal-content card">
+                                <div class="modal-header card">
+                                    <span class="close_card">&times;</span>
+                                    <h2>Ваши товары</h2>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="products">
+                                        <img src="assets/img/hotter/french_omelette.png" alt="Французский омлет">
+                                        <h5>Французский омлет</h5>
+        
+                                    </div>
+                                </div>
+                                
+                                <div class="modal-footer card">
+                                   
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
