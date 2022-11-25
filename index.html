@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========================= КОЛОНКИ =========================-->
+        <link rel="stylesheet" href="https://unpkg.com/flexboxgrid2@7.2.1/flexboxgrid2.min.css">
+        
+        <!--=============== BOXICONS ===============-->
+        <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+        
+        <!--========================= ОСНОВНОЙ CSS =========================-->
+        <link rel="stylesheet" href="assets/style.css">
+
+        <!--========================= jQuery =========================-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+        <title>UserEats</title>
+    </head>
+
+    <body>
+        <!--========================= ШАПКА =========================-->
+        <header class="header">
+            <div class="container">
+                <div class="header_body">
+                    <div class="header_logo">
+                        <a href="#" class="logo">
+                            <span class="UBER">UBER</span>
+                            <span class="EATS">EATS</span>
+                        </a>
+                    </div>
+
+                    <div class="header_items">
+                        <div class="header_login">
+                            <button class="login_button" id="myBtn_registration">Регистрация <i class='bx bx-user-plus bx-sx'></i></button>
+                            <button class="login_button" id="myBtn_login">Авторизация <i class='bx bxs-user-check bx-sx'></i></button>
+                        </div>
+
+                        <!--Модальное окно регистрации-->
+                        <div id="myModal_registration" class="modal registration">
+                            <div class="modal-content">
+                                <div class="modal-header registration">
+                                    <span class="close_registration">&times;</span>
+                                    <h2>Регистрация</h2>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form>
+                                        <input type="email" placeholder="E-mail" required>
+                                        <input type="tel" placeholder="Телефон" required>
+                                        <input type="text" placeholder="Логин" required>
+                                        <input type="password" placeholder="Пароль" required>
+                                        <input type="password" placeholder="Повторите пароль" required>
+                                        <button>Зарегистрироваться</button>
+                                    </form>
+                                </div>
+                                
+                                <div class="modal-footer registration">
+                                    <span>Есть аккаунт?</span> <a href="javascript:login();">Авторизация</a><i class='bx bx-right-arrow-alt'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Модальное окно авторизации-->
+                        <div id="myModal_login" class="modal login">
+                            <div class="modal-content">
+                                <div class="modal-header login">
+                                    <span class="close_login">&times;</span>
+                                    <h2>Авторизация</h2>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form>
+                                        <input type="text" placeholder="Логин" required>
+                                        <input type="password" placeholder="Пароль" required>
+                                        <button>Войти</button>
+                                    </form>
+                                </div>
+                                
+                                <div class="modal-footer login">
+                                    <span>Нет аккаунта?</span> <a href="javascript:registration();">Регистрация</a><i class='bx bx-right-arrow-alt'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="header_basket" id="myBtn_card">
+                            <i class='bx bxs-shopping-bag bx-sm'></i>
+                        </div>
+
+                        <!--Модальное окно корзины-->
+                        <!-- <div id="myModal_card" class="modal card">
+                            <div class="modal-content card">
+                                <div class="modal-header card">
+                                    <span class="close_card">&times;</span>
+                                    <h2>Ваши товары</h2>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="products">
+                                        <img src="assets/img/hotter/french_omelette.png" alt="Французский омлет">
+                                        <h5>Французский омлет</h5>
+        
+                                    </div>
+                                </div>
+                                
+                                <div class="modal-footer card">
+                                   
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--========================= ЛЕНДИНГ =========================-->
+        <section class="lending">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-7 col-xs-12">
+                        <div class="card_inn">                            
+                            <div class="name">Трактир «Пушкин»</div>
+                            
+                            <div class="second" id="snack_container">
+                                <div class="price_european">₽₽₽ • Европейская</div>
+                                <div class="time_delivery">40 - 50 мин</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--========================= ГЛАВНОЕ МЕНЮ =========================-->
+        <nav class="nav_menu" id="nav_menu">
+            <div class="container">
+                <div class="row col-lg-8 col-md-12 col-xs-0 main_menu">
+                    <a href="#snack_container" onclick="switchDisplay('snack_container')">Закуски</a>
+                    <a href="#salads_container" onclick="switchDisplay('salads_container')">Салаты</a>
+                    <a href="#soups_container" onclick="switchDisplay('soups_container')">Супы</a>
+                    <a href="#hot_dishes_container" onclick="switchDisplay('hot_dishes_container')">Горячие блюда</a>
+                    <a href="#side_dishes_container" onclick="switchDisplay('side_dishes_container')">Гарниры</a>
+                    <a href="#desserts_container" onclick="switchDisplay('desserts_container')">Десерты</a>
+                </div>
+            </div>
+        </nav>
+
+        <!--========================= ЗАКУСКИ =========================-->
+        <main class="main_list">
+            <div class="container">
+                <h2 class="main_title">Закуски</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_1">
+                            <div class="left_card">
+                                <p class="card_title">Сельдь на бородинском хлебе</p>
+                                <p class="card_description">
+                                    Сельдь, бородинский хлеб, яйца, огурцы...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">240 г |</span>
+                                    <span class="past_price">290 ₽</span> 
+                                    240 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/snack/herring_on_Borodino_bread.svg" alt="Сельдь на бородинском хлебе">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_1" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_1">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/snack/herring_on_Borodino_bread.svg" alt="Сельдь на бородинском хлебе">
+                                        <div class="title_description">
+                                            <h2>Сельдь на бородинском хлебе</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>818 Ккал</td>
+                                                    <td>27 г</td>
+                                                    <td>65 г</td>
+                                                    <td>33 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Сельдь, бородинский хлеб, яйца, огурцы,
+                                        красный лук, черный перец, укроп
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">240 г |</span>
+                                        <span class="past_price">290 ₽</span> 
+                                        240 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_2">
+                            <div class="left_card">
+                                <p class="card_title">Соленья ассорти</p>
+                                <p class="card_description">
+                                    Рис, перец, семга, укроп, петрушка, лук, майонез...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">400 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/snack/assorted_pickles.svg" alt="Соленья ассорти">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_2" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_2">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/snack/assorted_pickles.svg" alt="Соленья ассорти">
+                                        <div class="title_description">
+                                            <h2>Соленья ассорти</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>100 Ккал</td>
+                                                    <td>16 г</td>
+                                                    <td>0 г</td>
+                                                    <td>20 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Рис, перец, семга, укроп, петрушка, лук, 
+                                        майонез, сырок плавленный, маслины, оливки
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">400 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_3">
+                            <div class="left_card">
+                                <p class="card_title">Грибы маринованные</p>
+                                <p class="card_description">
+                                    Маринованные вешенки, филе куриное, укроп, лук...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">480 г |</span> 300 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/snack/marinated_mushrooms.svg" alt="Грибы маринованные">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_3" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_3">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/snack/marinated_mushrooms.svg" alt="Грибы маринованные">
+                                        <div class="title_description">
+                                            <h2>Грибы маринованные</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>830 Ккал</td>
+                                                    <td>50 г</td>
+                                                    <td>76 г</td>
+                                                    <td>86 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Маринованные вешенки, филе куриное, укроп,  
+                                        лук, огурцы маринованные, сыр, сухарики, петрушка,
+                                        майонези
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">480 г |</span> 300 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_4">
+                            <div class="left_card">
+                                <p class="card_title">Сало домашнее с горчицей</p>
+                                <p class="card_description">
+                                    Сало, горчица, чеснок, майонез, перец, гренки...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">240 г |</span>
+                                    <span class="past_price">360 ₽</span> 
+                                    320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/snack/salo_homemade_with_mustard.svg" alt="Сало домашнее с горчицей">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_4" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_4">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/snack/salo_homemade_with_mustard.svg" alt="Сало домашнее с горчицей">
+                                        <div class="title_description">
+                                            <h2>Сало домашнее с горчицей</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>720 Ккал</td>
+                                                    <td>36 г</td>
+                                                    <td>96 г</td>
+                                                    <td>0 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Сало, горчица, чеснок, майонез, перец, гренки,
+                                        огурцы маринованные, сушеная зелень
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">240 г |</span>
+                                        <span class="past_price">360 ₽</span> 
+                                        320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_5">
+                            <div class="left_card">
+                                <p class="card_title">Малосольная семга</p>
+                                <p class="card_description">
+                                    Малосольная семга, козий сыр, черри, маслины...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">420 г |</span>
+                                    <span class="past_price">430 ₽</span> 
+                                    390 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/snack/salted_salmon.svg" alt="Малосольная семга">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_5" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_5">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/snack/salted_salmon.svg" alt="Малосольная семга">
+                                        <div class="title_description">
+                                            <h2>Малосольная семга</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>432 Ккал</td>
+                                                    <td>18 г</td>
+                                                    <td>33 г</td>
+                                                    <td>12 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Малосольная семга, козий сыр, черри, 
+                                        маслины, оливки, лимон, укроп
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">420 г |</span>
+                                        <span class="past_price">430 ₽</span> 
+                                        390 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_6">
+                            <div class="left_card">
+                                <p class="card_title">Язык говяжий с хреном</p>
+                                <p class="card_description">
+                                    Говяжий язык, хрен, майонез, чеснок, каперсы...  
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">430 г |</span> 350 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/snack/beef_tongue_with_horseradish.svg" alt="Язык говяжий с хреном">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_6" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_6">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/snack/beef_tongue_with_horseradish.svg" alt="Язык говяжий с хреном">
+                                        <div class="title_description">
+                                            <h2>Язык говяжий с хреном</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>520 Ккал</td>
+                                                    <td>48 г</td>
+                                                    <td>36 г</td>
+                                                    <td>40 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Говяжий язык, хрен, майонез, чеснок, каперсы, 
+                                        перец, лавровый лист
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">430 г |</span> 350 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--========================= САЛАТЫ =========================-->
+        <main class="main_list" id="salads_container" style="display: none">
+            <div class="container">
+                <h2 class="main_title">Салаты</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_7">
+                            <div class="left_card">
+                                <p class="card_title">Цезарь</p>
+                                <p class="card_description">
+                                    Куриное филе, гренки, пармезан, яйца куриные...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">200 г |</span> 240 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/salads/caesar.png" alt="Цезарь">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_7" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_7">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/salads/caesar.png" alt="Цезарь">
+                                        <div class="title_description">
+                                            <h2>Цезарь</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>200 Ккал</td>
+                                                    <td>20 г</td>
+                                                    <td>10 г</td>
+                                                    <td>6 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Куриное филе, гренки, пармезан, яйца куриные, 
+                                        петрушка, помидоры, майонез, зелень
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">200 г |</span> 240 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_8">
+                            <div class="left_card">
+                                <p class="card_title">Мимоза</p>
+                                <p class="card_description">
+                                    Шпроты, яйца куриные, морковь, картофель, лук...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">200 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/salads/mimosa.png" alt="Мимоза">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_8" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_8">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/salads/mimosa.png" alt="Мимоза">
+                                        <div class="title_description">
+                                            <h2>Мимоза</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>362 Ккал</td>
+                                                    <td>16 г</td>
+                                                    <td>30 г</td>
+                                                    <td>6 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Шпроты, яйца куриные, морковь, картофель, лук, 
+                                        майонез с лимонным соком, зелень, лимоны
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">200 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_9">
+                            <div class="left_card">
+                                <p class="card_title">Оливье</p>
+                                <p class="card_description">
+                                    Картофель, огурцы, морковь, мясо куриное, яйца...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">200 г |</span> 300 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/salads/olivye.png" alt="Оливье">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_9" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_9">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/salads/olivye.png" alt="Оливье">
+                                        <div class="title_description">
+                                            <h2>Оливье</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>368 Ккал</td>
+                                                    <td>10 г</td>
+                                                    <td>30 г</td>
+                                                    <td>14 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Картофель, огурцы, морковь, мясо куриное, яйца,  
+                                        вареная колбаса, лук, огурцы маринованные, 
+                                        зеленый горошек, майонез
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">200 г |</span> 300 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_10">
+                            <div class="left_card">
+                                <p class="card_title">Нисуаз</p>
+                                <p class="card_description">
+                                    Тунец, помидоры черри, фасоль зеленая стручковая...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">200 г |</span> 350 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/salads/nicoise.png" alt="Нисуаз">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_10" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_10">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/salads/nicoise.png" alt="Нисуаз">
+                                        <div class="title_description">
+                                            <h2>Нисуаз</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>380 Ккал</td>
+                                                    <td>18 г</td>
+                                                    <td>20 г</td>
+                                                    <td>4 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Тунец, помидоры черри, фасоль зеленая стручковая, 
+                                        яйца перепелиные, маслины, лук, анчоусы, горчица, 
+                                        чеснок, перец черный
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">200 г |</span> 350 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--========================= СУПЫ =========================-->
+        <main class="main_list" id="soups_container" style="display: none">
+            <div class="container">
+                <h2 class="main_title">Супы</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_11">
+                            <div class="left_card">
+                                <p class="card_title">Минестроне</p>
+                                <p class="card_description">
+                                    Красный лук, сельдерей, базилик, помидоры пелати...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">330 г |</span> 240 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/soup/minestrone.png" alt="Минестроне">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_11" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_11">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/soup/minestrone.png" alt="Минестроне">
+                                        <div class="title_description">
+                                            <h2>Минестроне</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>95 Ккал</td>
+                                                    <td>5 г</td>
+                                                    <td>4 г</td>
+                                                    <td>10 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Красный лук, сельдерей, базилик, помидоры пелати, 
+                                        розмарин, савойская капуста, тертый сыр пармезан
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">330 г |</span> 240 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main">
+                            <div class="left_card" id="myBtn_12">
+                                <p class="card_title">Солянка</p>
+                                <p class="card_description">
+                                    Куриное филе, лук, морковь, томатная паста, лимон...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">320 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/soup/hodgepodge.png" alt="Солянка">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_12" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_12">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/soup/hodgepodge.png" alt="Солянка">
+                                        <div class="title_description">
+                                            <h2>Солянка</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>234 Ккал</td>
+                                                    <td>18 г</td>
+                                                    <td>15 г</td>
+                                                    <td>4 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Куриное филе, лук, томатная паста, лимон,  
+                                        маслины, соленые огурцы, перец черный, 
+                                        лавровый лист, сосиски, майонез, петрушка
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">320 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_13">
+                            <div class="left_card">
+                                <p class="card_title">Гаспачо</p>
+                                <p class="card_description">
+                                    Томаты, сельдерей, чеснок, табаско, сельдерей... 
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">320 г |</span> 300 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/soup/gazpacho.png" alt="Гаспачо">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_13" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_13">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/soup/gazpacho.png" alt="Гаспачо">
+                                        <div class="title_description">
+                                            <h2>Гаспачо</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>75 Ккал</td>
+                                                    <td>3 г</td>
+                                                    <td>3 г</td>
+                                                    <td>12 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Томаты, сельдерей, чеснок, табаско, сельдерей, 
+                                        болгарский перец, оливковое масло
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">320 г |</span> 300 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_14">
+                            <div class="left_card">
+                                <p class="card_title">Сырный суп</p>
+                                <p class="card_description">
+                                    Сливки, молоко, плавленый сыр, лук, чеснок, перец...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">310 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/soup/cheese_soup.png" alt="Сырный суп">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_14" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_14">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/soup/cheese_soup.png" alt="Сырный суп">
+                                        <div class="title_description">
+                                            <h2>Сырный суп</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>114 Ккал</td>
+                                                    <td>6 г</td>
+                                                    <td>7 г</td>
+                                                    <td>8 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Сливки, молоко, плавленый сыр, лук, чеснок, перец, 
+                                        лавровый лист, картофель, гренки
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">310 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--========================= ГОРЯЧИЕ БЛЮДА =========================-->
+        <main class="main_list" id="hot_dishes_container" style="display: none">
+            <div class="container">
+                <h2 class="main_title">Горячие блюда</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_15">
+                            <div class="left_card">
+                                <p class="card_title">Французский омлет</p>
+                                <p class="card_description">
+                                    Яйца, филе куриное, сливочное масло, укроп...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">260 г |</span> 240 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/hotter/french_omelette.png" alt="Французский омлет">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_15" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_15">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/hotter/french_omelette.png" alt="Французский омлет">
+                                        <div class="title_description">
+                                            <h2>Французский омлет</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>280 Ккал</td>
+                                                    <td>20 г</td>
+                                                    <td>22 г</td>
+                                                    <td>8 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Яйца, филе куриное, сливочное масло, укроп,  
+                                        петрушка, черный перец
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">260 г |</span> 240 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_16">
+                            <div class="left_card">
+                                <p class="card_title">Цыпленок качьятори</p>
+                                <p class="card_description">
+                                    Бекон, куриные бедра и голени, чеснок, лук...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">280 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/hotter/chicken_kachiatori.png" alt="Цыпленок качьятори">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_16" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_16">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/hotter/chicken_kachiatori.png" alt="Цыпленок качьятори">
+                                        <div class="title_description">
+                                            <h2>Цыпленок качьятори</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>370 Ккал</td>
+                                                    <td>38 г</td>
+                                                    <td>28 г</td>
+                                                    <td>3 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Бекон, куриные бедра и голени, чеснок, лук, 
+                                        измельченные томаты, шампиньоны, лавровый лист
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">280 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_17">
+                            <div class="left_card">
+                                <p class="card_title">Курзе</p>
+                                <p class="card_description">
+                                    Фарш говяжий, лук, черный перец, петрушка, яйца...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">260 г |</span> 300 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/hotter/kurze.png" alt="Курзе">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_17" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_17">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/hotter/kurze.png" alt="Курзе">
+                                        <div class="title_description">
+                                            <h2>Курзе</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>210 Ккал</td>
+                                                    <td>9 г</td>
+                                                    <td>7 г</td>
+                                                    <td>28 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Фарш говяжий, лук, черный перец, петрушка, 
+                                        яйца, сливочное масло, сметана
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">260 г |</span> 300 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_18">
+                            <div class="left_card">
+                                <p class="card_title">Люля-кебаб</p>
+                                <p class="card_description">
+                                    Рубленая баранина, лук, курдюк, черный перец...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">260 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/hotter/lula_kebab.png" alt="Люля-кебаб">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_18" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_18">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/hotter/lula_kebab.png" alt="Люля-кебаб">
+                                        <div class="title_description">
+                                            <h2>Люля-кебаб</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>305 Ккал</td>
+                                                    <td>48 г</td>
+                                                    <td>12 г</td>
+                                                    <td>4 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Рубленая баранина, лук, курдюк, черный перец, 
+                                        томаты, петрушка
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">260 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--========================= ГАРНИРЫ =========================-->
+        <main class="main_list" id="side_dishes_container" style="display: none">
+            <div class="container">
+                <h2 class="main_title">Гарниры</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_19">
+                            <div class="left_card">
+                                <p class="card_title">Кетчуп</p>
+                                <p class="card_description">
+                                    Томаты, уксус, сахар, специи
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">110 г |</span> 45 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/side_dishes/ketchup.png" alt="Кетчуп">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_19" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_19">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/side_dishes/ketchup.png" alt="Кетчуп">
+                                        <div class="title_description">
+                                            <h2>Кетчуп</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>36 Ккал</td>
+                                                    <td>1 г</td>
+                                                    <td>1 г</td>
+                                                    <td>8 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Томаты, уксус, сахар, специи
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">110 г |</span> 45 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_20">
+                            <div class="left_card">
+                                <p class="card_title">Сырный соус</p>
+                                <p class="card_description">
+                                    Сыр, сливки, черный перец, специи
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">110 г |</span> 45 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/side_dishes/cheese_sauce.png" alt="Сырный соус">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_20" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_20">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/side_dishes/cheese_sauce.png" alt="Сырный соус">
+                                        <div class="title_description">
+                                            <h2>Сырный соус</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>90 Ккал</td>
+                                                    <td>1 г</td>
+                                                    <td>10 г</td>
+                                                    <td>2 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Сыр, сливки, черный перец, специи
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">110 г |</span> 45 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_21">
+                            <div class="left_card">
+                                <p class="card_title">Чесночный соус</p>
+                                <p class="card_description">
+                                    Чеснок, сливки, сметана, сыр, зелень, черный перец
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">110 г |</span> 45 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/side_dishes/garlic_sause.png" alt="Чесночный соус">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_21" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_21">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/side_dishes/garlic_sause.png" alt="Чесночный соус">
+                                        <div class="title_description">
+                                            <h2>Чесночный соус</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>85 Ккал</td>
+                                                    <td>1 г</td>
+                                                    <td>8 г</td>
+                                                    <td>4 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Чеснок, сливки, сметана, сыр, зелень, черный перец
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">110 г |</span> 45 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--========================= ДЕСЕРТЫ =========================-->
+        <main class="main_list" id="desserts_container" style="display: none">
+            <div class="container">
+                <h2 class="main_title">Десерты</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_22">
+                            <div class="left_card">
+                                <p class="card_title">Панна Котта</p>
+                                <p class="card_description">
+                                    Вишня, клубника, сахар, желатин, молоко, сливки...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">305 г |</span> 240 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/desserts/panna_cotta.png" alt="Панна Котта">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_22" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_22">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/desserts/panna_cotta.png" alt="Панна Котта">
+                                        <div class="title_description">
+                                            <h2>Панна Котта</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>100 Ккал</td>
+                                                    <td>12 г</td>
+                                                    <td>3 г</td>
+                                                    <td>5 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Вишня, клубника, сахар, желатин, молоко, сливки, 
+                                        ванилин
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">305 г |</span> 240 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-xs-12">
+                        <div class="card_main" id="myBtn_23">
+                            <div class="left_card">
+                                <p class="card_title">Торт Павлова</p>
+                                <p class="card_description">
+                                    Клубника, черника, сахарная пудра, молоко, сливки...
+                                </p>
+                                <p class="card_price">
+                                    <span class="grams">600 г |</span> 320 ₽
+                                </p>
+                            </div>
+
+                            <div class="right_card">
+                                <img src="assets/img/desserts/pavlova_cake.png" alt="Торт Павлова">
+                            </div>
+                        </div>
+
+                        <!--Модальное окно товара-->
+                        <div id="myModal_23" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close_23">&times;</span>
+                                    <div class="img_and_title">
+                                        <img src="assets/img/desserts/pavlova_cake.png" alt="Торт Павлова">
+                                        <div class="title_description">
+                                            <h2>Торт Павлова</h2>
+                                            <table>
+                                                <tr>
+                                                    <th>Калорийность</th>
+                                                    <th>Белки</th>
+                                                    <th>Жиры</th>
+                                                    <th>Углеводы</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>240 Ккал</td>
+                                                    <td>6 г</td>
+                                                    <td>22 г</td>
+                                                    <td>40 г</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <h4>Ингридиенты</h4>
+                                    <p class="modal-body_description">
+                                        Клубника, черника, сахарная пудра, молоко, сливки, 
+                                        ваниль, творожный сыр
+                                    </p>
+                                    <p class="card_price">
+                                        <span class="grams">600 г |</span> 320 ₽
+                                    </p>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <div class="number">
+                                        <button class="minus" id="minus">-</button>
+                                        <input type="text" class="num" id="num" value="1" disabled/>
+                                        <button class="plus" id="plus">+</button>
+                                    </div>
+                                    <button>В корзину <i class='bx bx-basket bx-xs'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--========================= ПОДВАЛ =========================-->
+        <footer class="footer">
+            <div class="container">
+                <a href="#">
+                    <button class="button_up">
+                        <img src="assets/img/arrow.svg">
+                    </button>
+                </a>
+    
+                <div class="footer_logo">
+                    <a href="#" class="logo">
+                        <span class="UBER">UBER</span>
+                        <span class="EATS">EATS</span>
+                    </a>
+                </div>
+                <hr class="line">
+
+                <div class="links">
+                    <div class="col-lg-4 col-md-4 col-xs-7">
+                        <div class="language">
+                            <img src="assets/img/location.svg" class="shape">
+                            <select class="lang">
+                                <option value="ru">Русский</option>
+                                <option value="en">Английский</option>
+                                <option value="fr">Французский</option>
+                                <option value="deu">Немецкий</option>
+                            </select>
+                        </div>
+
+                        <div class="hash">
+                            <span class="hash_tag">#</span>UberEats
+                        </div>
+
+                        <div class="social">
+                            <a href="https://vk.com" target="_blank">
+                                <img src="assets/img/vk.svg" alt="vk">
+                            </a>
+                            <a href="https://github.com" target="_blank">
+                                <img src="assets/img/github.svg" alt="github">
+                            </a>
+                            <a href="https://web.telegram.org" target="_blank">
+                                <img src="assets/img/telegram.svg" alt="telegram">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <div class="center_content">
+                            <p><a href="#">Об UberEats</a></p>
+                            <p><a href="#">Станьте партнёром по доставке</a></p>
+                            <p><a href="#">Станьте парнёром-рестораном</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-3 col-xs-12">
+                        <div class="right_content">
+                            <p><a href="restaurant-in-moscow.html">Все города</a></p>
+                            <p><a href="#">Цены</a></p>
+                            <p><a href="#">Помощь</a></p>
+                            <p><a href="#">FAQs</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="line">
+
+                <div class="download">
+                    <a href="https://apple.com" target="_blank">
+                        <img src="assets/img/app_store.svg" alt="App Store">
+                    </a>
+                    <a href="https://play.google.com" target="_blank">
+                        <img src="assets/img/google_play.svg" alt="Google Play">
+                    </a>
+                </div>
+                
+                <hr class="line">
+
+                <div class="privacy">
+                    <p><a href="#">© 2017 Uber Technologies Inc</a></p>
+                    <p><a href="#">Обработка персональных данных</a></p>
+                    <p><a href="#">Пользовательское соглашение</a></p>
+                </div>
+            </div>
+        </footer>
+
+        <!--========================= ОСНОВНОЙ JS =========================-->
+        <script type="text/javascript" src="assets/script.js"></script>
+    </body>
+</html>

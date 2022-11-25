@@ -1,0 +1,784 @@
+html { scroll-behavior: smooth }
+
+body { 
+    margin: 0;
+    font-family: Roboto, Arial, Helvetica, sans-serif; 
+    color: #1d1d1d;
+}
+
+
+/*========================= ШАПКА =========================*/
+.header {
+    background-color: white;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 16px rgba(38, 38, 38, 16%);
+    z-index: 1000;
+}
+
+.header_body {
+    display: flex;
+    justify-content: space-between;
+    height: 72px;
+}
+
+.header_logo { margin: 26px 0 26px 0 }
+
+a { text-decoration: none }
+
+.header_logo .logo {
+    font-size: 17px;
+    letter-spacing: 2px; 
+}
+
+.UBER { 
+    color: #1d1d1d;
+    font-weight: bold 
+}
+
+.EATS { color: #57AD56 }
+
+.header_items { display: flex }
+
+.header_login { margin: 16px }
+
+.header_login i { vertical-align: middle }
+
+.login_button {
+    border: 1px solid #E0E0E0;
+    border-radius: 2px;
+    padding: 12px 20px;
+    font-weight: bolder;
+    background: white;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.login_button:hover {
+    background: #57AD56;
+    color: white;
+}
+
+.login_button:first-child { margin-right: 20px }
+
+.close_registration,
+.close_login,
+.close_card {
+    color: white;
+    float: right;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.close_registration ~ h2,
+.close_login ~ h2,
+.close_card ~ h2 {
+    text-align: center;
+    color: white
+}
+
+.modal.registration { padding-top: 2% }
+
+.modal-header.registration,
+.modal-header.login,
+.modal-header.card {
+    padding: 20px 20px 5px 20px;
+    background: #59BD5A;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-body input {
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    color: #626262;
+    border: 1px solid rgba(117, 117, 117, .4);
+    border-radius: 2px;
+}
+
+.modal-body input:focus { outline: none }
+
+.modal-body button {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    display: block;
+    width: 84%;
+    color: white;
+    background: #59BD5A;
+    font-weight: bold;
+    border: 1px solid #59BD5A;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.modal-body button:hover {
+    background: white;
+    color: #59BD5A;
+    border: 1px solid #59BD5A;
+}
+
+.modal-footer.registration,
+.modal-footer.login {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 0;
+    width: 84%;
+}
+
+.modal-footer.registration a,
+.modal-footer.registration i,
+.modal-footer.login a,
+.modal-footer.login i {
+    color: #57AD56;
+}
+
+.modal-footer.registration a:hover,
+.modal-footer.registration i:hover,
+.modal-footer.login a:hover,
+.modal-footer.login i:hover {
+    color: #49A144;
+}
+
+.modal.login { padding-top: 10% }
+
+.header_basket {
+    margin: 25px 0 25px 10px;
+    cursor: pointer;
+}
+
+.header_basket i { transition: all .2s ease-in }
+
+.header_basket i:hover { color: #57AD56 }
+
+.modal.card { padding-top: 10% }
+
+.modal-content.card {
+    width: 35%;
+    border: none
+}
+
+.close_card ~ h2 { font-size: 20px }
+
+/* .modal-body .products {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.modal-body .products img {
+    width: 25%;
+    padding-top: 20px;
+}
+
+.modal-body .products h5 {
+    padding-left: 20px;
+} */
+
+
+/*========================= ЛЕНДИНГ =========================*/
+.lending {
+    background-image: url("../assets/img/lending.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.card_inn {
+    background: white;
+    padding: 38px 52px 38px 48px;
+    margin: 80px 0 80px 0;
+    box-shadow: 0px 0px 16px 0px rgba(117, 117, 117, 0.2);
+}
+
+.name {
+    font-size: 32px;
+    line-height: 42px;
+}
+
+.second {
+    display: flex;
+    margin-top: 62px;
+    justify-content: space-between;
+}
+
+.price_european {
+    font-size: 14px;
+    margin-top: 7px;
+    color: #626262;
+}
+
+.time_delivery {
+    font-size: 13px;
+    background: #262626;
+    color: white;
+    width: 70px;
+    border-radius: 16px;
+    padding: 8px 16px 8px 16px;
+}
+
+/*Смартфон*/
+@media screen and (max-width: 420px) {
+    .card_inn {
+        border-radius: 2px;
+        margin: 60px 0 60px 0;
+    }
+
+    .name {
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .second {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .time_delivery { margin-top: 16px }
+}
+
+
+/*========================= ГЛАВНОЕ МЕНЮ =========================*/
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    opacity: 0;
+    animation: fix .4s forwards;
+}
+
+@keyframes fix {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+
+.nav_menu {
+    display: flex;
+    padding: 32px 0 32px 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(117, 117, 117, .2);
+    background: white;
+}
+
+.nav_menu a { color: #626262 }
+
+.nav_menu a::after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: #57AD56;
+    transition: width .3s ease-in-out;
+}
+
+a:hover::after,
+a:focus::after {
+    width: 100%;
+}
+
+.nav_menu a:hover { color:#57AD56 }
+
+#nav_menu .active_link {
+    color: #57AD56;
+    font-weight: bold
+}
+
+.nav_menu a:not(:first-child) { margin-left: 40px }
+
+/*Смартфон*/
+@media screen and (max-width: 768px) {
+    .nav_menu { padding: 20px 0 30px 0 }
+
+    .main_menu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav_menu a { margin-top: 15px }
+
+    .nav_menu a:not(:first-child) { margin-left: 16px }
+}
+
+
+/*========================= КАРТОЧКИ С ЕДОЙ =========================*/
+.main_list { padding-top: 40px }
+
+.main_title {
+    font-weight: normal;
+    font-size: 22px;
+}
+
+.card_main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    height: 160px;
+    border: 1px solid rgba(117, 117, 117, .2);
+    border-radius: 2px;
+    cursor: pointer;
+    transform: translateX(-150%);
+    animation: main_menu 1s forwards;
+    padding: 16px;
+}
+
+@keyframes main_menu {
+    0% { transform: translateX(-150%) }
+    100% { transform: translateY(0) }
+}
+
+.card_main:hover { box-shadow: 0px 0px 8px 0px rgba(117, 117, 117, 0.2) }
+
+.left_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card_description {
+    font-size: 14px;
+    color: #626262;
+    line-height: 20px;
+}
+
+.past_price {
+    font-size: 13px;
+    color: #626262;
+    text-decoration: line-through;
+}
+
+.card_price {
+    font-size: 15px;
+    font-weight: bold;
+    color: #59BD5A;
+}
+
+.right_card { float: right }
+
+.right_card img { border-radius: 2px }
+
+/*Модальный (фон)*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 8%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+  
+/*Модальное содержание*/
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+  
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    } 
+    
+    to {
+        top: 0; 
+        opacity: 1
+    }
+}
+  
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.img_and_title { display: flex }
+
+.img_and_title img {
+    margin-right: 15px;
+    border-radius: 2px;
+}
+
+.img_and_title .title_description {
+    text-align: left;
+    color: #1D1D1D;
+    width: 50%;
+}
+
+.img_and_title .title_description table th,
+.img_and_title .title_description table td {
+    text-align: center;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: normal;
+}
+
+.img_and_title .title_description table th:first-child,
+.img_and_title .title_description table td:first-child {
+    background: #EABD09;
+    color: white;
+}
+
+.img_and_title .title_description table th:nth-child(2),
+.img_and_title .title_description table td:nth-child(2) {
+    background: #3A95CC;
+    color: white;
+}
+
+.img_and_title .title_description table th:nth-child(3),
+.img_and_title .title_description table td:nth-child(3) {
+    background: #8ACA42;
+    color: white;
+}
+
+.img_and_title .title_description table th:last-child,
+.img_and_title .title_description table td:last-child {
+    background: #E98A16;
+    color: white;
+}
+
+.close_1,
+.close_2,
+.close_3,
+.close_4,
+.close_5,
+.close_6,
+.close_7,
+.close_8,
+.close_9,
+.close_10,
+.close_11,
+.close_12,
+.close_13,
+.close_14,
+.close_15,
+.close_16,
+.close_17,
+.close_18,
+.close_19,
+.close_20,
+.close_21,
+.close_22,
+.close_23 {
+    color: black;
+    float: right;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.modal-header { padding: 20px 20px 5px 20px }
+
+.modal-body h4 {
+    font-weight: normal;
+    font-size: 17px;
+    padding: 0 20px 
+}
+
+.modal-body .modal-body_description {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid rgba(117, 117, 117, .2);
+}
+
+.modal-body .card_price { padding: 10px 0 0 20px }
+
+.grams {
+    font-size: 13px;
+    color: #626262;
+}
+  
+.modal-footer { padding: 10px 20px }
+
+.modal-footer button {
+    margin: 0px 0 16px 0;
+    padding: 10px 20px;
+    border: 1px solid #57AD56;
+    color: #57AD56;
+    border-radius: 2px;
+    background: white;
+    font-weight: bold;
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+
+.modal-footer button:hover {
+    background: #57AD56;
+    color: white;
+}
+
+.modal-footer i { vertical-align: middle }
+
+.modal-footer .number {
+    float: left;
+    margin-right: 20px;
+}
+
+.modal-footer .number .minus {
+    background: #f9f9f9;
+    color: #262626;
+    border: 1px solid rgba(117, 117, 117, .2);
+    border-radius: 5px 0 0 5px;
+    padding: 11px 14px;
+    font-size: 15px;
+}
+
+.modal-footer .number .num {
+    color: #262626;
+    text-align: center;
+    background: #f9f9f9;
+    border: 1px solid rgba(117, 117, 117, .2);
+    height: 37px;
+    width: 37px;
+    font-size: 15px;
+}
+
+.modal-footer .number .num:focus { outline: none }
+
+.modal-footer .number .plus {
+    background: #f9f9f9;
+    color: #262626;
+    border: 1px solid rgba(117, 117, 117, .2);
+    border-radius: 0 5px 5px 0;
+    padding: 11px 11px;
+    font-size: 15px;
+}
+
+/*Смартфон*/
+@media screen and (max-width: 420px) {
+    .card_title { font-size: 14px }
+
+    .card_description {
+        font-size: 10px;
+        line-height: 12px
+    }
+
+    .past_price { font-size: 10px }
+
+    .card_price { font-size: 12px }
+}
+
+
+/*========================= ПОДВАЛ =========================*/
+.footer {
+    background: #262626;
+    margin-top: 80px;
+    color: white;
+}
+
+.button_up {
+    position: absolute;
+    right: 47px;
+    bottom: 45px;
+    height: 70px;
+    width: 70px;
+    background: #59BD5A;
+    color: white;
+    border-radius: 2px;
+    z-index: 1;
+    position: fixed;
+    border: none;
+    cursor: pointer;
+    opacity: .9;
+}
+
+.footer_logo {
+    margin-bottom: 40px;
+    padding-top: 55px;
+}
+
+.footer_logo .logo {
+    font-size: 25px;
+    letter-spacing: 4px; 
+}
+
+.footer_logo .UBER { color: white }
+
+.line {
+    height: 0.1px;
+    background: white;
+    opacity: .4;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-bottom: 55px;
+}
+
+.language {
+    display: flex;
+    margin-top: 20px;
+}
+
+.shape {
+    background: #3B3B3B;
+    padding: 10px;
+}
+
+.lang {
+    width: 60%;
+    height: 40px;
+    background: #3B3B3B;
+    color: white;
+    border: none;
+    font-size: 13px;
+}
+
+.hash { margin: 33px 0 17px 0 }
+
+.hash_tag { color: #49A144 }
+
+.social a:not(:first-child) { margin-left: 12px }
+
+.center_content { font-size: 13px }
+
+.center_content p { margin-top: 23px }
+
+.center_content a { color: white }
+
+.right_content { font-size: 13px }
+
+.right_content p { margin-top: 23px }
+
+.right_content a { color: white }
+
+.download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download a { margin: 40px 20px 40px 20px }
+
+.privacy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 40px 0 40px 0;
+    font-size: 13px
+}
+
+.privacy p:not(:first-child) { margin-left: 120px }
+
+.privacy a { color: white }
+
+/*Планшет*/
+@media screen and (max-width: 991px) {
+    .privacy {
+        font-size: 12px;
+        padding: 20px 0 20px 0;
+        justify-content: space-between;
+    }
+
+    .privacy p:not(:first-child) { margin-left: 0 }
+}
+
+/*Планшет*/
+@media screen and (max-width: 768px) {
+    .button_up {
+        right: 9px;
+        bottom: 24px;
+        height: 50px;
+        width: 50px;
+    }
+    
+    .footer_logo {
+        margin-bottom: 30px;
+        padding-top: 40px;
+    }
+
+    .links { margin-bottom: 30px }
+
+    .center_content { margin-top: 40px }
+
+    .center_content p:last-child { margin-bottom: 0 }
+
+    .privacy {
+        font-size: 10px;
+        padding: 20px 0 20px 0;
+        justify-content: space-between;
+    }
+
+    .privacy p:not(:first-child) { margin-left: 0 }
+
+    .download a { margin: 30px 15px 30px 15px }
+}
+
+
+
+
+/*================================ РЕСТОРАНЫ В МОСКВЕ ================================*/
+/*========================= ПОЛЕ ПОИСКА =========================*/
+.search {
+    margin: 70px auto;
+    margin-bottom: 55px;
+    height: 24px;
+}
+
+.form_search { border-bottom: 1px solid rgba(117, 117, 117, .3) }
+
+.form_search input {
+    border: none;
+    width: 100%;
+    opacity: .5;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    color: #626262;
+    padding: 4px 0;
+}
+
+.list_restaurant_in_Moscow a { color: #1D1D1D }
+
+.card_restaurants {
+    display: block;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #1D1D1D;
+    border: 1px solid rgba(117, 117, 117, .2);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.card_restaurants:hover { box-shadow: 0px 0px 8px 0px rgba(117, 117, 117, 0.2) }
+
+.card_img { width: 100% }
+
+.card_top { margin: 16px }
+
+.card_text {
+    color: #626262;
+    font-size: 14px;
+}
+
+.card_time { font-size: 13px }
