@@ -32,7 +32,7 @@ a { text-decoration: none }
     letter-spacing: 2px; 
 }
 
-.UBER { 
+.USER { 
     color: #1d1d1d;
     font-weight: bold 
 }
@@ -619,7 +619,7 @@ a:focus::after {
     letter-spacing: 4px; 
 }
 
-.footer_logo .UBER { color: white }
+.footer_logo .USER { color: white }
 
 .line {
     height: 0.1px;
